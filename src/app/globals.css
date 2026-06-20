@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@400;600;700&family=Fredoka+One&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg: #FFFEF7;
+  --yellow: #FFF9C4;
+  --blue: #BBDEFB;
+  --text: #333333;
+  --card: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Nunito', 'Quicksand', 'Fredoka', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Bounce animation for mascot */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-bounce-soft {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Card default */
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Button */
+.btn {
+  border-radius: 18px;
+  padding: 10px 24px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+.btn-blue {
+  background: #BBDEFB;
+  color: #333;
+}
+
+.btn-blue:hover {
+  background: #90CAF9;
+}
+
+.btn-yellow {
+  background: #FFF9C4;
+  color: #333;
+}
+
+.btn-yellow:hover {
+  background: #FFF176;
+}
+
+.btn-green {
+  background: #C8E6C9;
+  color: #333;
+}
+
+.btn-green:hover {
+  background: #A5D6A7;
+}
+
+.btn-red {
+  background: #FFCDD2;
+  color: #333;
+}
+
+.btn-red:hover {
+  background: #EF9A9A;
+}
+
+/* Input */
+.input {
+  border-radius: 18px;
+  padding: 12px 18px;
+  border: 2px solid #e0e0e0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.input:focus {
+  border-color: #BBDEFB;
+}
+
+/* Badge */
+.badge {
+  border-radius: 12px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.badge-blue { background: #BBDEFB; color: #1565C0; }
+.badge-yellow { background: #FFF9C4; color: #F57F17; }
+.badge-green { background: #C8E6C9; color: #2E7D32; }
+.badge-red { background: #FFCDD2; color: #C62828; }
+.badge-orange { background: #FFE0B2; color: #E65100; }
+
+/* Lock/Unlock icon */
+.icon-lock { color: #C62828; font-size: 20px; }
+.icon-unlock { color: #2E7D32; font-size: 20px; }
+
+/* Sticky header */
+header.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 254, 247, 0.95);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Hover card effects */
+.materi-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 18px;
+  padding: 32px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+/* Price strikethrough */
+.price-coret {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 14px;
+}
+
+.price-asli {
+  color: #E53935;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+/* Hero section */
+.hero-section {
+  background: linear-gradient(135deg, #FFF9C4 0%, #BBDEFB 100%);
+  border-radius: 18px;
+  padding: 48px 24px;
+  text-align: center;
+}
+
+/* Responsive grid */
+.materi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 900px) {
+  .materi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .materi-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-section {
+    padding: 32px 16px;
+  }
+  .btn {
+    min-height: 48px;
+  }
+  .mobile-menu-btn {
+    display: block !important;
+  }
+  .desktop-nav {
+    display: none !important;
+  }
+}
+
+@media (min-width: 601px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+/* Rich text content */
+.konten-materi h1 { font-size: 2em; font-weight: 800; margin: 24px 0 12px; }
+.konten-materi h2 { font-size: 1.5em; font-weight: 700; margin: 20px 0 10px; color: #1565C0; }
+.konten-materi h3 { font-size: 1.2em; font-weight: 700; margin: 16px 0 8px; }
+.konten-materi p { margin: 8px 0; line-height: 1.7; }
+.konten-materi ul, .konten-materi ol { margin: 8px 0; padding-left: 24px; }
+.konten-materi li { margin: 4px 0; line-height: 1.6; }
+.konten-materi code { background: #f0f0f0; padding: 2px 8px; border-radius: 6px; font-family: monospace; font-size: 0.9em; }
+.konten-materi pre { background: #263238; color: #A5D6A7; padding: 16px; border-radius: 12px; overflow-x: auto; margin: 12px 0; }
+.konten-materi pre code { background: none; padding: 0; color: inherit; }
+.konten-materi blockquote { border-left: 4px solid #BBDEFB; padding: 8px 16px; margin: 12px 0; background: #F5F5F5; border-radius: 4px; }
+.konten-materi strong { font-weight: 800; }
+.konten-materi hr { border: none; border-top: 2px solid #e0e0e0; margin: 24px 0; }
+.konten-materi table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+.konten-materi th, .konten-materi td { border: 1px solid #e0e0e0; padding: 8px 12px; text-align: left; }
+.konten-materi th { background: #BBDEFB; font-weight: 700; }
+
+/* Warning box */
+.warning-box {
+  background: #FFF3E0;
+  border: 2px solid #FF9800;
+  border-radius: 18px;
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-weight: 600;
+}
+
+/* Pedagogical boxes for materi content */
+
+/* Analogy box - real-world analogy */
+.analogy-box {
+  background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+  border-left: 6px solid #9C27B0;
+  border-radius: 0 14px 14px 0;
+  padding: 18px 22px;
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.analogy-box::before {
+  content: '🧠 Analogi Dunia Nyata: ';
+  font-weight: 800;
+  color: #6A1B9A;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Tip / Pro tip box */
+.tip-box {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  border-left: 6px solid #43A047;
+  border-radius: 0 14px 14px 0;
+  padding: 16px 22px;
+  margin: 16px 0;
+}
+.tip-box::before {
+  content: '💡 Tips Pro: ';
+  font-weight: 800;
+  color: #1B5E20;
+}
+
+/* Info / catatan box */
+.info-box {
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+  border-left: 6px solid #1976D2;
+  border-radius: 0 14px 14px 0;
+  padding: 16px 22px;
+  margin: 16px 0;
+}
+.info-box::before {
+  content: 'ℹ️ Info Penting: ';
+  font-weight: 800;
+  color: #0D47A1;
+}
+
+/* Danger / Warning danger box */
+.danger-box {
+  background: linear-gradient(135deg, #FFEBEE 0%, #FFCDD2 100%);
+  border-left: 6px solid #C62828;
+  border-radius: 0 14px 14px 0;
+  padding: 16px 22px;
+  margin: 16px 0;
+  font-weight: 600;
+}
+.danger-box::before {
+  content: '🚨 BAHAYA / JANGAN LAKUKAN: ';
+  font-weight: 800;
+  color: #B71C1C;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* Success / checkpoint box */
+.success-box {
+  background: linear-gradient(135deg, #E8F5E9 0%, #A5D6A7 100%);
+  border: 2px dashed #2E7D32;
+  border-radius: 16px;
+  padding: 18px 22px;
+  margin: 24px 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+.success-box::before {
+  content: '🎉 CHECKPOINT SUKSES! ';
+  display: block;
+  font-size: 16px;
+  color: #1B5E20;
+  margin-bottom: 6px;
+}
+
+/* Question / FAQ box */
+.faq-box {
+  background: #FFFDE7;
+  border-radius: 14px;
+  padding: 14px 20px;
+  margin: 12px 0;
+  border: 1px solid #FFF59D;
+}
+.faq-box .faq-q {
+  font-weight: 800;
+  color: #F57F17;
+  margin-bottom: 6px;
+}
+.faq-box .faq-q::before {
+  content: '❓ ';
+}
+.faq-box .faq-a {
+  padding-left: 22px;
+  color: #424242;
+}
+
+/* Command breakdown (bedah command) */
+.cmd-break {
+  background: #263238;
+  color: #ECEFF1;
+  padding: 16px 18px;
+  border-radius: 12px;
+  margin: 10px 0;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.cmd-break .cmd-flag { color: #FFEB3B; font-weight: bold; }
+.cmd-break .cmd-desc { color: #B0BEC5; font-size: 13px; }
+
+/* Step list inside materi */
+.konten-materi ol.steps {
+  counter-reset: step;
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+.konten-materi ol.steps > li {
+  counter-increment: step;
+  background: #FAFAFA;
+  border-left: 4px solid #42A5F5;
+  border-radius: 0 12px 12px 0;
+  padding: 12px 16px 12px 50px;
+  margin: 10px 0;
+  position: relative;
+  line-height: 1.7;
+}
+.konten-materi ol.steps > li::before {
+  content: "Langkah " counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #42A5F5;
+  color: white;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 12px 0 12px 0;
+}
+
+/* ASCII visual block (diagram sederhana) */
+.ascii-visual {
+  background: #FAFAFA;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  white-space: pre;
+  overflow-x: auto;
+  line-height: 1.4;
+}
+
+/* Materi table style enhancement */
+.konten-materi table.compare {
+  font-size: 14px;
+}
+.konten-materi table.compare th {
+  background: #1565C0;
+  color: white;
+}
+
+/* Ringkasan box di akhir materi */
+.summary-box {
+  background: linear-gradient(135deg, #E8EAF6 0%, #C5CAE9 100%);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin: 28px 0;
+  border: 1px solid #9FA8DA;
+}
+.summary-box::before {
+  content: '📌 RINGKASAN MATERI';
+  font-weight: 800;
+  font-size: 16px;
+  color: #283593;
+  display: block;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+.summary-box ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.summary-box ul li {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+/* Admin sidebar */
+.admin-sidebar a {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 12px;
+  transition: background 0.2s;
+  font-weight: 600;
+}
+
+.admin-sidebar a:hover, .admin-sidebar a.active {
+  background: #BBDEFB;
+}
