@@ -1,8 +1,8 @@
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
 
-const JWT_SECRET = 'cybered-secret-key-2024-secure';
-const JWT_ADMIN_SECRET = 'cybered-admin-secret-key-2024-secure';
+const JWT_SECRET = process.env.JWT_SECRET || 'cybered-secret-key-2024-secure';
+const JWT_ADMIN_SECRET = process.env.JWT_ADMIN_SECRET || 'cybered-admin-secret-key-2024-secure';
 
 export interface UserPayload {
   id: string;

@@ -1,7 +1,7 @@
 import Database from 'better-sqlite3';
 import path from 'path';
 
-const DB_PATH = path.join(process.cwd(), 'cybered.db');
+const DB_PATH = process.env.DB_PATH || path.join(process.cwd(), 'cybered.db');
 
 let db: Database.Database | null = null;
 
